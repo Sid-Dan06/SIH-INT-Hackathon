@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// ✅ Correct relative paths (because Landing.jsx is inside src/pages/)
 import WebGIS from "../assets/WebGIS.png";
 import DSS from "../assets/DSS.png";
 import aiImg from "../assets/aiImg.png";

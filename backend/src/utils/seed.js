@@ -17,7 +17,7 @@ async function seed() {
     const admin = new User({
       name: "Admin User",
       email: "admin@example.com",
-      password: "password123", // will get hashed by pre-save hook
+      password: "password123", 
       role: "admin",
     });
     await admin.save();

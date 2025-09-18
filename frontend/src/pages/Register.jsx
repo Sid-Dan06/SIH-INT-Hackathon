@@ -41,7 +41,7 @@ export default function Register() {
 
       if (res.ok) {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("role", data.role); // 👈 save role
+        localStorage.setItem("role", data.role); 
         alert("✅ Registration successful!");
 
         if (data.role === "admin") {

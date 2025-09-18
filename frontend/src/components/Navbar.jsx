@@ -10,7 +10,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const image = localStorage.getItem("userImage"); // store during login if available
+    const image = localStorage.getItem("userImage"); 
     setIsLoggedIn(!!token);
     if (image) setUserImage(image);
   }, [location]);

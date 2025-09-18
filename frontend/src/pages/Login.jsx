@@ -20,7 +20,7 @@ export default function Login() {
 
       if (res.ok) {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("role", data.role); // 👈 save role
+        localStorage.setItem("role", data.role); 
         alert("✅ Login successful!");
 
         if (data.role === "admin") {

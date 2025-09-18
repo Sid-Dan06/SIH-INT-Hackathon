@@ -62,7 +62,7 @@ export default function passportConfig() {
     )
   );
 
-  // Sessions (not really needed if you're using JWT only, but required by passport)
+  // Sessions
   passport.serializeUser((user, done) => {
     done(null, user);
   });

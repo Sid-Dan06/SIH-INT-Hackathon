@@ -41,15 +41,14 @@ export default function AboutUs() {
               </p>
             </div>
             <div className="flex justify-center">
-  <img
-    alt="Illustration of a lush green forest"
-    className="w-full max-w-md rounded-lg shadow-lg"
-    src="src/assets/forest.png"
-  />
-</div>
-
+              <img
+                alt="Illustration of a lush green forest"
+                className="w-full max-w-md rounded-lg shadow-lg"
+                src="src/assets/forest.png"
+              />
+            </div>
           </div>
-
+          
           {/* Objectives Section */}
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -159,84 +158,84 @@ export default function AboutUs() {
       </section>
 
       {/* Footer */}
-<footer className="bg-gray-50 text-gray-800">
-  <div className="container mx-auto max-w-7xl px-6 py-12">
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      {/* Left Logo + Description */}
-      <div>
-        <Link
-          to="/"
-          className="flex items-center space-x-2 text-green-600 font-bold text-lg"
-        >
-          <span
-            className="material-symbols-outlined text-green-600"
-            style={{ fontSize: "32px" }}
-          >
-            forest
-          </span>
-          <span>FRA Atlas & DSS</span>
-        </Link>
-        <p className="mt-4 text-gray-500">
-          Ensuring justice for forest-dwelling communities and protecting forests.
-        </p>
-      </div>
+      <footer className="bg-gray-50 text-gray-800">
+        <div className="container mx-auto max-w-7xl px-6 py-12">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {/* Left Logo + Description */}
+            <div>
+              <Link
+                to="/"
+                className="flex items-center space-x-2 text-green-600 font-bold text-lg"
+              >
+                <span
+                  className="material-symbols-outlined text-green-600"
+                  style={{ fontSize: "32px" }}
+                >
+                  forest
+                </span>
+                <span>FRA Atlas & DSS</span>
+              </Link>
+              <p className="mt-4 text-gray-500">
+                Ensuring justice for forest-dwelling communities and protecting forests.
+              </p>
+            </div>
 
-      {/* Right Sections */}
-      <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-2">
-        <div>
-          <h3 className="font-semibold tracking-wider uppercase text-gray-900">
-            Navigation
-          </h3>
-          <ul className="mt-4 space-y-2">
-            <li>
-              <Link className="text-gray-500 hover:text-green-600" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="text-gray-500 hover:text-green-600" to="/map">
-                Map
-              </Link>
-            </li>
-            <li>
-              <Link className="text-gray-500 hover:text-green-600" to="/dashboard">
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link className="text-gray-500 hover:text-green-600" to="/about">
-                About Us
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="font-semibold tracking-wider uppercase text-gray-900">
-            Legal
-          </h3>
-          <ul className="mt-4 space-y-2">
-            <li><a className="text-gray-500 hover:text-green-600" href="#">Privacy Policy</a></li>
-            <li><a className="text-gray-500 hover:text-green-600" href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="font-semibold tracking-wider uppercase text-gray-900">
-            Contact
-          </h3>
-          <ul className="mt-4 space-y-2">
-            <li><a className="text-gray-500 hover:text-green-600" href="#">Contact Us</a></li>
-            <li><a className="text-gray-500 hover:text-green-600" href="#">Support</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+            {/* Right Sections */}
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-2">
+              <div>
+                <h3 className="font-semibold tracking-wider uppercase text-gray-900">
+                  Navigation
+                </h3>
+                <ul className="mt-4 space-y-2">
+                  <li>
+                    <Link className="text-gray-500 hover:text-green-600" to="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-gray-500 hover:text-green-600" to="/map">
+                      Map
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-gray-500 hover:text-green-600" to="/dashboard">
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-gray-500 hover:text-green-600" to="/about">
+                      About Us
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold tracking-wider uppercase text-gray-900">
+                  Legal
+                </h3>
+                <ul className="mt-4 space-y-2">
+                  <li><a className="text-gray-500 hover:text-green-600" href="#">Privacy Policy</a></li>
+                  <li><a className="text-gray-500 hover:text-green-600" href="#">Terms of Service</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold tracking-wider uppercase text-gray-900">
+                  Contact
+                </h3>
+                <ul className="mt-4 space-y-2">
+                  <li><a className="text-gray-500 hover:text-green-600" href="#">Contact Us</a></li>
+                  <li><a className="text-gray-500 hover:text-green-600" href="#">Support</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-    {/* Bottom copyright */}
-    <div className="mt-12 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
-      <p>© 2025 FRA Atlas & DSS. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+          {/* Bottom copyright */}
+          <div className="mt-12 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
+            <p>© 2025 FRA Atlas & DSS. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
 
     </div>
   );
