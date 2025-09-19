@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
-import { Link } from "react-router-dom";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 export default function ClientClaims() {
@@ -11,14 +10,68 @@ export default function ClientClaims() {
         village: "",
     });
 
+    const [search, setSearch] = useState("");
+    const [claims] = useState([
+        {
+            id: 1,
+            claimant: "Radha Murmu",
+            status: "Approved",
+            district: "Nagpur",
+            block: "Block A",
+            village: "Village 1",
+            position: [21.1458, 79.0882], // Nagpur
+        },
+        {
+            id: 2,
+            claimant: "Anil Kumar",
+            status: "Pending",
+            district: "Raipur",
+            block: "Block B",
+            village: "Village 2",
+            position: [21.2514, 81.6296], // Raipur
+        },
+        {
+            id: 3,
+            claimant: "Sita Das",
+            status: "Rejected",
+            district: "Bhubaneswar",
+            block: "Block C",
+            village: "Village 3",
+            position: [20.2961, 85.8245], // Bhubaneswar
+        },
+    ]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFilters({ ...filters, [name]: value });
     };
 
     const handleApply = () => {
-        alert("Filters applied (later fetch data from API)");
+        alert(
+            `Filters applied:\nStatus: ${filters.status}\nDistrict: ${filters.district}\nBlock: ${filters.block}\nVillage: ${filters.village}`
+        );
     };
+
+    // 🔍 Apply filters + search
+    const filteredClaims = claims.filter((claim) => {
+        const matchesStatus =
+            filters.status === "All" || claim.status === filters.status;
+        const matchesDistrict =
+            !filters.district || claim.district === filters.district;
+        const matchesBlock = !filters.block || claim.block === filters.block;
+        const matchesVillage = !filters.village || claim.village === filters.village;
+        const matchesSearch =
+            claim.claimant.toLowerCase().includes(search.toLowerCase()) ||
+            claim.district.toLowerCase().includes(search.toLowerCase());
+
+        return (
+            matchesStatus &&
+            matchesDistrict &&
+            matchesBlock &&
+            matchesVillage &&
+            matchesSearch
+        );
+    });
 
     return (
         <div className="flex min-h-screen bg-gray-50">
@@ -52,6 +105,9 @@ export default function ClientClaims() {
                             className="border rounded p-2"
                         >
                             <option value="">Select District</option>
+                            <option value="Nagpur">Nagpur</option>
+                            <option value="Raipur">Raipur</option>
+                            <option value="Bhubaneswar">Bhubaneswar</option>
                         </select>
                     </label>
 
@@ -65,6 +121,9 @@ export default function ClientClaims() {
                             className="border rounded p-2"
                         >
                             <option value="">Select Block</option>
+                            <option value="Block A">Block A</option>
+                            <option value="Block B">Block B</option>
+                            <option value="Block C">Block C</option>
                         </select>
                     </label>
 
@@ -78,6 +137,9 @@ export default function ClientClaims() {
                             className="border rounded p-2"
                         >
                             <option value="">Select Village</option>
+                            <option value="Village 1">Village 1</option>
+                            <option value="Village 2">Village 2</option>
+                            <option value="Village 3">Village 3</option>
                         </select>
                     </label>
                 </div>
@@ -93,7 +155,7 @@ export default function ClientClaims() {
             {/* Main Content */}
             <main className="flex-1 p-6">
                 <div className="bg-white rounded-lg shadow-sm overflow-hidden h-full flex flex-col">
-                    <div className="p-6">
+                    <div className="p-6 border-b border-gray-200">
                         <h1 className="text-gray-800 text-2xl font-bold">FRA Claim Data</h1>
                     </div>
 
@@ -108,6 +170,17 @@ export default function ClientClaims() {
                                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
+
+                            {/* Display filtered claims as markers */}
+                            {filteredClaims.map((claim) => (
+                                <Marker key={claim.id} position={claim.position}>
+                                    <Popup>
+                                        <strong>{claim.claimant}</strong> <br />
+                                        Status: {claim.status} <br />
+                                        District: {claim.district}
+                                    </Popup>
+                                </Marker>
+                            ))}
                         </MapContainer>
 
                         {/* Search Bar */}
@@ -115,6 +188,8 @@ export default function ClientClaims() {
                             <input
                                 type="text"
                                 placeholder="Search for a claim"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
                                 className="w-full px-4 py-2 border rounded shadow bg-white"
                             />
                         </div>
