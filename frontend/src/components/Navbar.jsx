@@ -10,7 +10,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const image = localStorage.getItem("userImage"); 
+    const image = localStorage.getItem("userImage");
     setIsLoggedIn(!!token);
     if (image) setUserImage(image);
   }, [location]);
@@ -46,20 +46,32 @@ export default function Navbar() {
             <>
               <Link
                 to="/client-dashboard"
-                className="text-green-600 font-semibold"
+                className="text-gray-700 hover:text-green-600 font-semibold"
               >
                 Dashboard
               </Link>
-              <Link to="#" className="text-gray-700 hover:text-green-600">
+              <Link
+                to="/claim-details/1" // Example id for now
+                className="text-gray-700 hover:text-green-600 font-semibold"
+              >
+                Claim Details
+              </Link>
+              <Link
+                to="/data-management"
+                className="text-gray-700 hover:text-green-600 font-semibold"
+              >
+                Data Management
+              </Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 font-semibold">
                 AI Asset Mapping
               </Link>
-              <Link to="#" className="text-gray-700 hover:text-green-600">
-                DSS Recommendations
+              <Link to="#" className="text-gray-700 hover:text-green-600 font-semibold">
+                DSS
               </Link>
-              <Link to="#" className="text-gray-700 hover:text-green-600">
+              <Link to="#" className="text-gray-700 hover:text-green-600 font-semibold">
                 Reports
               </Link>
-              <Link to="#" className="text-gray-700 hover:text-green-600">
+              <Link to="#" className="text-gray-700 hover:text-green-600 font-semibold">
                 Help
               </Link>
             </>
@@ -67,6 +79,9 @@ export default function Navbar() {
             <>
               <Link to="/" className="text-gray-700 hover:text-green-600">
                 Home
+              </Link>
+              <Link to="/claims" className="text-gray-700 hover:text-green-600">
+                Claims
               </Link>
               <Link to="/about-us" className="text-gray-700 hover:text-green-600">
                 About Us
@@ -105,7 +120,7 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              {/* Avatar links to user settings */}
+              {/* Avatar → user settings */}
               <Link
                 to="/user-settings"
                 className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden border hover:ring-2 hover:ring-green-500 transition"

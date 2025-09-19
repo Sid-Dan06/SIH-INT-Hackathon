@@ -11,6 +11,11 @@ import AboutUs from "./pages/AboutUs";
 import AdminDashboard from "./pages/AdminDashboard";
 import ClientDashboard from "./pages/ClientDashboard";
 import UserSettings from "./pages/UserSettings";
+import DataManagement from "./pages/DataManagement";
+import ClientClaims from "./pages/ClientClaims";
+import ClaimDetails from "./pages/ClaimDetails";
+
+
 
 function RequireAuth({ children }) {
   const token = localStorage.getItem("token");
@@ -30,11 +35,11 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        {/* OAuth Success Page */}
-        <Route path="/oauth-success" element={<OAuthSuccess />} />
-
         {/* About Us Page */}
         <Route path="/about-us" element={<AboutUs />} />
+
+        {/* OAuth Success Page */}
+        <Route path="/oauth-success" element={<OAuthSuccess />} />
 
         {/* Admin and Client Login */}
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
@@ -42,6 +47,22 @@ export default function App() {
 
         {/* User Settings */}
         <Route path="/user-settings" element={<UserSettings />} />
+
+        {/* Claims Page */}
+        <Route path="/claims" element={<ClientClaims />} />
+
+        {/* Private Claim Details Page */}
+        <Route
+          path="/claim-details/:id"
+          element={
+            <RequireAuth>
+              <ClaimDetails />
+            </RequireAuth>
+          }
+        />
+
+        {/* Data Upload */}
+        <Route path="/data-management" element={<DataManagement />} />
 
         {/* Protected Dashboard */}
         <Route
